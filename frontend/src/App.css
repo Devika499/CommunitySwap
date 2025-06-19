@@ -1,0 +1,1315 @@
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5; /* Light grey background */
+  color: #333;
+}
+
+.app-container {
+  max-width: none; /* Remove max-width to allow full width */
+  width: 100%; /* Ensure it takes full width */
+  margin: 0; /* Remove all margins */
+  padding: 0; /* Removed padding to allow full width content */
+}
+
+h1 {
+  color: #333;
+  font-size: 2.2em;
+  margin-bottom: 20px;
+}
+
+button, .button-link {
+  background-color: #007bff; /* Primary blue */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+button:hover, .button-link:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+button.secondary, .button-link.secondary {
+  background-color: #6c757d; /* Grey secondary button */
+}
+
+button.secondary:hover, .button-link.secondary:hover {
+  background-color: #5a6268;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-container {
+  background-color: white;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 40px auto;
+}
+
+.navbar {
+  background-color: #343a40; /* Dark navbar background */
+  color: white;
+  padding: 10px 20px; /* Adjusted padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%; /* Ensure it spans full width */
+  position: sticky; /* Make it sticky at the top */
+  top: 0;
+  z-index: 1000; /* Ensure it stays on top of other content */
+}
+
+.navbar-brand {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+}
+
+.navbar-title {
+  font-size: 1.5em; /* Match the size of the brand */
+  font-weight: bold; /* Keep it bold */
+  color: white; /* Keep the text white */
+  text-decoration: none; /* Ensure no underline */
+}
+
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 20px; /* Space between links */
+}
+
+.navbar-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 8px 15px; /* Adjusted padding for links */
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-menu a:hover {
+  background-color: #495057;
+}
+
+.navbar-end {
+  display: flex;
+  align-items: center;
+  margin-left: auto; /* Push to the right */
+  gap: 20px; /* Space between points and profile */
+}
+
+.points-display {
+  color: white;
+  font-size: 1em;
+  white-space: nowrap; /* Prevent text wrapping */
+  background-color: transparent; /* Ensure it doesn't look like a button */
+  padding: 0; /* Remove button padding */
+  border: none; /* Remove button border */
+  border-radius: 0; /* Remove button border-radius */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.profile-dropdown {
+  position: relative;
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.profile-dropdown button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.profile-dropdown img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: white;
+  border-radius: 4px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  min-width: 150px;
+  z-index: 1001; /* Ensure dropdown is above other elements */
+  list-style: none;
+  padding: 0;
+  margin: 5px 0 0 0; /* Add top margin for spacing */
+}
+
+.dropdown-menu a,
+.dropdown-menu button {
+  display: block;
+  width: 100%;
+  padding: 10px 15px;
+  text-align: left;
+  color: #333;
+  text-decoration: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap; /* Prevent text wrapping */
+  box-sizing: border-box; /* Include padding in width */
+}
+
+.dropdown-menu a:hover,
+.dropdown-menu button:hover {
+  background-color: #f0f0f0;
+}
+
+.dropdown-menu button {
+  color: #000 !important; /* Force text color to black */
+}
+
+.dropdown-menu button:hover {
+  background-color: #dc3545;
+  color: white;
+}
+
+.notification-badge {
+  background-color: #dc3545;
+  color: white;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 0.7em;
+  margin-left: 5px;
+  vertical-align: top;
+}
+
+.message {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.message.error {
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+.password-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.password-section h3 {
+  color: #007bff;
+  margin-bottom: 15px;
+}
+
+/* Dashboard Layout and Card Styles */
+.dashboard-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between the two main cards */
+    max-width: 90%; /* Adjust as needed for overall dashboard width */
+    margin: 20px auto; /* Center the dashboard container */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.dashboard-card {
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.welcome-content {
+    display: flex;
+    flex-direction: row; /* Text and image side-by-side */
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 20px;
+}
+
+.welcome-text {
+    flex: 1;
+}
+
+.welcome-image {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.welcome-card h1 {
+    color: #333;
+    margin-bottom: 0;
+}
+
+.user-posts-card .your-posts-subtitle {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #007bff;
+}
+
+.no-posts-card {
+    text-align: center;
+    padding: 30px;
+    border: 2px dashed #ccc;
+    border-radius: 8px;
+    background-color: #f0f0f0;
+}
+
+.no-posts-card p {
+    color: #777;
+    margin-bottom: 20px;
+}
+
+.post-item-button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.post-item-button:hover {
+    background-color: #218838;
+}
+
+/* Form specific styles for PostItem.js */
+.form-container h1 {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.form-container form div {
+    margin-bottom: 15px;
+}
+
+.form-container label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #555;
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+.form-container textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-container select {
+    height: 44px; /* Match input height */
+}
+
+.image-preview {
+    margin-top: 15px;
+    text-align: center;
+}
+
+.image-preview img {
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container button[type="submit"] {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1em;
+    margin-top: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .welcome-content {
+        flex-direction: column; /* Stack text above image on smaller screens */
+    }
+
+    .welcome-image {
+        max-width: 100%;
+    }
+
+    .dashboard-container {
+        margin: 10px auto;
+        padding: 15px;
+    }
+
+    .item-card {
+        width: calc(50% - 20px); /* Two cards per row on tablets */
+    }
+}
+
+@media (max-width: 480px) {
+    .item-card {
+        width: 100%; /* One card per row on mobile phones */
+    }
+}
+
+/* Responsive adjustments for forms */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .form-container button[type="submit"] {
+        padding: 12px;
+        font-size: 1em;
+    }
+}
+
+.post-new-item-card {
+    background-color: #e6f7ff; /* Light blue background to make it stand out */
+    border: 1px dashed #007bff; /* Dashed border */
+    text-align: center;
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.post-new-item-card:hover {
+    background-color: #d4edfa; /* Slightly darker blue on hover */
+    border-color: #0056b3;
+}
+
+.post-new-item-card h3 {
+    color: #007bff; /* Match primary button color */
+    margin-bottom: 10px;
+}
+
+.post-new-item-card p {
+    color: #555;
+    font-size: 0.9em;
+    margin-bottom: 20px;
+}
+
+.request-button {
+    background-color: #4CAF50; /* Green */
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-top: 10px; /* Space above the button */
+    transition: background-color 0.3s ease;
+}
+
+.request-button:hover {
+    background-color: #45a049;
+}
+
+.other-posts-card {
+    margin-top: 20px; /* Space between user posts and others posts */
+}
+
+/* Items Grid Styles */
+.items-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Increased min-width for better card display */
+  gap: 1.5rem;
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.item-card {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+  min-height: 450px; /* Increased minimum height for more consistent card size and ample space */
+  position: relative; /* For proper positioning of children */
+}
+
+.item-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.item-image-container {
+  width: 100%;
+  height: 180px; /* Fixed height for image container */
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+
+.item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensures image covers the container */
+  display: block;
+}
+
+.image-placeholder {
+  color: #888;
+  font-style: italic;
+  text-align: center;
+  font-size: 1.1em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 1rem; /* Added padding to ensure text doesn't touch edges */
+  box-sizing: border-box; /* Include padding in width/height */
+}
+
+.item-image.image-error {
+  filter: grayscale(100%);
+  opacity: 0.6;
+}
+
+.item-card h3 { /* Targeting h3 directly as per Items.js HTML */
+  margin: 1rem 1.5rem 0.5rem 1.5rem;
+  font-size: 1.4em;
+  color: #333;
+  min-height: 1.8em; /* Ensure consistent height for title (approx 2 lines for shorter titles) */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limit title to 2 lines */
+  -webkit-box-orient: vertical;
+  line-height: 1.2;
+}
+
+.item-description {
+  padding: 0 1.5rem;
+  margin-bottom: 1rem;
+  color: #555;
+  font-size: 0.95em;
+  flex-grow: 1; /* Allows description to take available vertical space, pushing other content down */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limit description to 3 lines */
+  -webkit-box-orient: vertical;
+  line-height: 1.4;
+  max-height: calc(1.4em * 3);
+}
+
+.item-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1.5rem 1rem 1.5rem;
+  margin-top: auto;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.item-type-tag { /* This corresponds to your .item-type in HTML */
+  background: #e3f2fd;
+  color: #1976d2;
+  padding: 0.3em 0.8em;
+  border-radius: 20px;
+  font-size: 0.8em;
+  font-weight: 600;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.item-location {
+  color: #666;
+  font-size: 0.85em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 60%; /* Prevents overlap with item-type-tag */
+}
+
+.item-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 1.5rem 1.5rem 1.5rem;
+  gap: 0.75rem;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: auto; /* Ensures buttons are always at the bottom of the card */
+}
+
+.item-actions .btn {
+  flex: 1; /* Makes buttons take equal width */
+  text-align: center;
+  padding: 0.75rem 0.5rem;
+  white-space: nowrap; /* Prevents button text wrapping */
+  font-size: 0.9em;
+  min-width: 110px; /* Ensures buttons don't shrink too much */
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .items-grid {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjusted min-width for consistency */
+  }
+  .item-card {
+      min-height: 420px; /* Adjust min height for consistency on medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .items-grid {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Further adjustment for smaller screens */
+      padding: 1rem;
+  }
+  .item-card {
+      min-height: 400px; /* Adjust min height for consistency on smaller screens */
+  }
+  .item-card h3 {
+      font-size: 1.2em;
+  }
+  .item-description {
+      font-size: 0.9em;
+  }
+}
+
+@media (max-width: 576px) {
+  .items-grid {
+      grid-template-columns: 1fr; /* Single column on very small screens */
+      padding: 1rem;
+  }
+  .item-card {
+      min-height: unset; /* Allow height to adjust for content on very small screens (stacking) */
+  }
+  .item-card h3 {
+      font-size: 1.3em;
+  }
+  .item-description {
+      font-size: 1em;
+  }
+  .item-actions {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 0.5rem;
+  }
+  .item-actions .btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      font-size: 1em;
+  }
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-primary {
+    background-color: #1976d2;
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #1565c0;
+}
+
+.btn-secondary {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.btn-secondary:hover {
+    background-color: #e0e0e0;
+}
+
+/* Container for user's posted items on the dashboard */
+.user-items-grid {
+    display: flex;
+    flex-direction: row; /* Ensure cards are in a row */
+    flex-wrap: wrap; /* Allow cards to wrap to the next line */
+    gap: 20px; /* Space between each user item card */
+    margin-top: 20px;
+    justify-content: flex-start; /* Align cards to the start */
+}
+
+/* Styles for individual item cards WITHIN the dashboard's user-items-grid */
+.user-items-grid .item-card {
+    display: flex;
+    flex-direction: column; /* CONTENT inside the card will be in a column */
+    align-items: flex-start; /* Align text to the left */
+    gap: 5px; /* Smaller gap between stacked elements */
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 8px; /* Added border-radius for visual consistency */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Added subtle shadow for individual cards */
+    width: calc(33.33% - 14px); /* Approx 3 cards per row */
+    min-width: 250px; /* Ensure a minimum width */
+    max-width: 350px; /* Max width to control size */
+    text-align: left;
+    min-height: unset; /* Override global min-height */
+    overflow: hidden; /* Hide overflowing content to keep card clean */
+    transition: none; /* Remove transition from global item-card */
+    transform: none; /* Reset transform from global item-card */
+}
+
+.user-items-grid .item-card:hover {
+    transform: translateY(-2px); /* Slight lift on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Enhanced shadow on hover */
+}
+
+.user-items-grid .item-card h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 1.2em;
+    color: #333;
+    min-height: unset;
+    overflow: hidden; /* Hide overflowing text for title */
+    text-overflow: ellipsis; /* Add ellipsis for title overflow */
+    white-space: nowrap; /* Keep title on a single line */
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: unset;
+    line-height: normal;
+    flex-shrink: 0;
+}
+
+.user-items-grid .item-card p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 5px;
+    flex-grow: 1;
+    overflow: hidden; /* Hide overflowing text for description */
+    text-overflow: ellipsis; /* Add ellipsis for description overflow */
+    display: -webkit-box; /* Enable multiline ellipsis */
+    -webkit-line-clamp: 2; /* Limit description to 2 lines */
+    -webkit-box-orient: vertical;
+    line-height: 1.4;
+    max-height: calc(1.4em * 2); /* Max height for 2 lines */
+}
+
+.user-items-grid .item-card .item-image {
+    width: 100%; /* Image takes full width of its card */
+    height: 120px; /* Fixed height for dashboard item images */
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 10px; /* Space below the image */
+    flex-shrink: 0; /* Prevent image from shrinking */
+    margin-right: 0; /* Reset from previous row layout */
+}
+
+/* Post New Item Card Specific Styles */
+.user-items-grid .post-new-item-card {
+    background-color: #e6f7ff;
+    border: 1px dashed #007bff;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    min-height: 150px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    box-shadow: none;
+    width: calc(33.33% - 14px); /* Match width of other item cards */
+    min-width: 250px;
+    max-width: 350px;
+}
+
+.post-new-item-card:hover {
+    background-color: #d0eeff;
+}
+
+.post-new-item-card h3 {
+    color: #0056b3;
+    margin-bottom: 10px;
+}
+
+.post-new-item-card p {
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 0.9em;
+}
+
+.post-item-button {
+    background-color: #28a745;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.post-item-button:hover {
+    background-color: #218838;
+}
+
+/* Responsive adjustments for dashboard */
+@media (max-width: 992px) {
+    .user-items-grid .item-card,
+    .user-items-grid .post-new-item-card {
+        width: calc(50% - 10px); /* Two per row on medium screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .user-items-grid .item-card,
+    .user-items-grid .post-new-item-card {
+        width: 100%; /* One card per row on smaller screens */
+        max-width: unset;
+    }
+    .user-items-grid .item-card {
+        flex-direction: column; /* Stack content within card */
+        align-items: center; /* Center content horizontally */
+    }
+}
+
+/* Image Modal Styles */
+.image-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.image-modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+}
+
+.full-size-image {
+    max-width: 100%;
+    max-height: 80vh; /* Adjust as needed */
+    display: block;
+    margin: auto;
+}
+
+.close-modal-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #333;
+}
+
+/* Item Card Layout (from previous successful edit, ensuring consistency) */
+.items-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    justify-content: center;
+}
+
+.item-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    transition: transform 0.2s ease-in-out;
+    height: 400px; /* Fixed height for consistency */
+}
+
+.item-card:hover {
+    transform: translateY(-5px);
+}
+
+.item-image-container {
+    width: 100%;
+    height: 200px; /* Fixed height for image container */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+}
+
+.item-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures image covers the area without distortion */
+}
+
+.image-placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #666;
+    font-size: 14px;
+    background-color: #e9e9e9;
+}
+
+.item-card h3 {
+    font-size: 1.2em;
+    margin: 10px 15px 5px;
+    color: #333;
+}
+
+.item-description {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0 15px 10px;
+    flex-grow: 1; /* Allows description to take available space */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limit to 3 lines */
+    -webkit-box-orient: vertical;
+    line-height: 1.4em;
+    max-height: 4.2em; /* 3 lines * 1.4em */
+}
+
+.item-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 15px 10px;
+    font-size: 0.85em;
+    color: #555;
+}
+
+.item-type-tag {
+    background-color: #e0f7fa;
+    color: #007bb5;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.item-location {
+    color: #777;
+}
+
+.item-actions {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    margin-top: auto; /* Pushes buttons to the bottom */
+}
+
+.item-actions .btn {
+    flex: 1;
+    margin: 0 5px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    text-align: center;
+}
+
+.item-actions .btn-primary {
+    background-color: #007bff;
+    color: white;
+    border: 1px solid #007bff;
+}
+
+.item-actions .btn-primary:hover {
+    background-color: #0056b3;
+}
+
+.item-actions .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+    border: 1px solid #6c757d;
+}
+
+.item-actions .btn-secondary:hover {
+    background-color: #545b62;
+}
+
+/* Navbar Notifications */
+.notifications-link {
+    position: relative;
+    margin-left: 20px;
+    display: flex;
+    align-items: center;
+    color: #fff; /* White color for the bell icon */
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+.notifications-link .fas.fa-bell {
+    font-size: 1.5em; /* Adjust bell icon size */
+    color: #fff; /* Ensure bell icon is white */
+}
+
+.notification-badge {
+    background-color: #ff4d4f; /* Red color for unread count */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 0.75em;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    min-width: 20px;
+    text-align: center;
+    line-height: 1;
+}
+
+/* Notifications Page Styles */
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px;
+}
+
+.notification-item {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.notification-item:hover {
+    background-color: #f9f9f9;
+}
+
+.notification-item.unread {
+    background-color: #e6f7ff; /* Light blue for unread */
+    border-left: 5px solid #1890ff;
+}
+
+.notification-item.read {
+    background-color: #f0f0f0; /* Light gray for read */
+    border-left: 5px solid #d9d9d9;
+}
+
+.notification-message {
+    margin: 0 0 10px 0;
+    font-size: 1em;
+    color: #333;
+}
+
+.notification-date {
+    font-size: 0.8em;
+    color: #888;
+    margin-bottom: 10px;
+}
+
+.mark-read-button {
+    background-color: #52c41a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    align-self: flex-end; /* Push button to the right */
+    transition: background-color 0.3s ease;
+}
+
+.mark-read-button:hover {
+    background-color: #389e0d;
+}
+
+/* Ensure font-awesome is available for bell icon, add this to your index.html or similar */
+/* <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40NZMfzGtpNWADgftLgBKmGCedExyaWlYgUN/jAZswLvgsIt/toL6tcB5vJ4Rz4t2O5fK2gI15Bw==" crossorigin="anonymous" referrerpolicy="no-referrer" /> */
+
+/* Styling for EditItem page (form-container) */
+.form-container {
+  max-width: 600px;
+  margin: 40px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-container h1 {
+  text-align: center;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+.form-container label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-container input[type="text"],
+.form-container textarea,
+.form-container select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensures padding doesn't increase width */
+}
+
+.form-container textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-container button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form-container button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.image-preview-container {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.image-preview {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid #eee;
+}
+
+.remove-image-btn {
+  margin-top: 10px;
+  background-color: #dc3545; /* Red color for remove button */
+}
+
+.remove-image-btn:hover {
+  background-color: #c82333;
+}
+
+/* Responsive adjustments for form-container */
+@media (max-width: 768px) {
+  .form-container {
+    margin: 20px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    margin: 10px;
+    padding: 10px;
+  }
+  .form-container button[type="submit"] {
+    font-size: 1em;
+    padding: 10px;
+  }
+}
+
+/* Navbar Profile Icon Styling */
+.profile-icon-text {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px; /* Space between icon and text */
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.profile-icon-text:hover {
+  background-color: #495057;
+}
+
+.profile-dropdown button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-size: 1.2em; /* Size for the down arrow */
+  color: white; /* Color for the down arrow */
+  margin-left: 5px; /* Space between profile icon and dropdown arrow */
+}
+
+/* Notifications Icon Styling */
+.notifications-icon-link {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 8px 15px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.notifications-icon-link:hover {
+  background-color: #495057;
+}
+
+.notifications-icon-link .notification-badge {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  transform: translate(50%, -50%);
+}
+
+.item-status-swapped {
+  background-color: #28a745; /* Green background for swapped status */
+  color: white;
+  padding: 8px 15px;
+  border-radius: 5px;
+  font-weight: bold;
+  text-align: center;
+  display: inline-block;
+  margin-top: 10px; /* Add some space above */
+}
+
+.item-distance {
+    color: #666;
+    font-size: 0.85em;
+    background: #f5f5f5;
+    padding: 0.2em 0.6em;
+    border-radius: 12px;
+    margin-left: auto;
+}
